@@ -49,15 +49,19 @@ BarWidget {
         }
     }
 
-    WidgetButton {
+    // Utilisation de BarIconButton comme dans omarchy.agents
+    BarIconButton {
         id: button
         anchors.fill: parent
         bar: root.bar
-        text: "Vibe"
-        tooltipText: "Vibe CLI - AI Agent"
-        iconName: "mdi-lightning-bolt"
+        text: "⚡"  // Icône personnalisée pour Vibe CLI
+        active: false
         onPressed: function(buttonCode) {
-            if (buttonCode === Qt.LeftButton) root.toggle()
+            if (buttonCode === Qt.RightButton) {
+                Quickshell.execDetached("vibe")
+            } else {
+                root.toggle()
+            }
         }
     }
 }
