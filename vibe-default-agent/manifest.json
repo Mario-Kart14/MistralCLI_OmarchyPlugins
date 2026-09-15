@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.mario-kart14.vibe-default-agent",
+  "name": "Vibe CLI Default Agent",
+  "version": "1.0.0",
+  "author": "Mario-Kart14",
+  "license": "MIT",
+  "description": "Sets Vibe CLI as the default AI agent in Omarchy and provides quick access to its configuration.",
+  "kinds": ["bar-widget"],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Vibe Agent",
+    "category": "AI",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}
