@@ -22,7 +22,7 @@ Panel {
     // Simulated provider data for Vibe CLI
     readonly property var provider: ({
         "providerId": "vibe",
-        "providerName": "Vibe CLI",
+        "providerName": "Mistral AI",
         "tierLabel": "Mistral",
         "usageStatusText": "Mistral AI",
         "authHelpText": "Vibe CLI is configured and ready to use",
@@ -72,6 +72,9 @@ Panel {
     readonly property var balance: null
     readonly property bool balanceAlarming: false
     readonly property bool alarming: (!!headline && headline.percent >= 0.9) || balanceAlarming
+    
+    // Property to track if tokens are exhausted (90% or more used)
+    readonly property bool tokensExhausted: !!headline && headline.percent >= 0.9
 
     function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)) }
     function alpha(c, a) { return Qt.rgba(c.r, c.g, c.b, a) }
@@ -359,7 +362,7 @@ Panel {
                                 Text {
                                     textFormat: Text.PlainText
                                     anchors.centerIn: parent
-                                    text: "⚡"
+                                    text: "🤖"
                                     color: root.foreground
                                     font.family: root.fontFamily
                                     font.pixelSize: Style.font.display

@@ -10,6 +10,7 @@ BarWidget {
 
     readonly property color foreground: bar ? bar.foreground : Color.foreground
     readonly property color urgent: bar ? bar.urgent : Color.urgent
+    readonly property bool alarming: panelLoader.item ? panelLoader.item.tokensExhausted : false
 
     readonly property bool opened: panelLoader.item
         ? panelLoader.item.opened === true
@@ -58,14 +59,14 @@ BarWidget {
         id: button
         anchors.fill: parent
         bar: root.bar
-        text: "⚡"
-        active: false
+        text: panelLoader.item ? (panelLoader.item.tokensExhausted ? "🔴" : "🤖") : "🤖"
+        active: root.alarming
         onPressed: function(buttonCode) {
-            if (buttonCode === Qt.RightButton) {
-                Quickshell.execDetached("omarchy-agent", ["--pick"])
-            } else {
-                root.toggle()
+            if (buttonCode === Qt.RightButton) root.launchAgent()
+            else if (buttonCode === Qt.MiddleButton) {
+                if (panelLoader.item) panelLoader.item.selectProvider(panelLoader.item.providerIndex + 1)
             }
+            else root.toggle()
         }
     }
 
