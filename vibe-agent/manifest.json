@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "omarchy.vibe",
+  "name": "Vibe CLI",
+  "version": "1.0.0",
+  "author": "Mario-Kart14",
+  "license": "MIT",
+  "description": "Vibe CLI agent integration for Omarchy, providing token usage tracking and default agent functionality.",
+  "kinds": ["bar-widget"],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Vibe CLI",
+    "category": "AI",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}
