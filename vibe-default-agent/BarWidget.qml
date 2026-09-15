@@ -54,8 +54,8 @@ BarWidget {
         anchors.fill: parent
         bar: root.bar
         text: "Vibe"
-        tooltipText: "Set Vibe CLI as default AI agent"
-        iconName: "ai"
+        tooltipText: "Vibe CLI - AI Agent"
+        iconName: "mdi-lightning-bolt"
         onPressed: function(buttonCode) {
             if (buttonCode === Qt.LeftButton) root.toggle()
         }
